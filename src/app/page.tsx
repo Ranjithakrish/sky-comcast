@@ -1,59 +1,48 @@
 "use client"
-import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
-import Img from './Components/Image';
+import React, { useState, useEffect, use } from 'react';
+import {Container, Title, Footer } from '@/sylesheets/styles'
+import {NextUIProvider} from '@nextui-org/system';
+import Cards from '@/components/cards';
+import MyPagination from '@/components/pagination'
 
-// Define the styled component for the 3D title
-const Title = styled.h1`
-  font-size: 3rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  text-shadow: 2px 2px 0px #333, 4px 4px 0px #777;
-  color: #00008B
-`;
-
-// Wrapper component to apply Bootstrap container styles
-const Container = styled.div`
-  text-align: center; 
-  margin: 0 auto; 
-  text-align: left
-  max-width: 960px;
-  padding: 20px;
-`;
 
 const HomePage: React.FC = () => {
-  const [message, setMessage] = useState<any>();
+  const [iTunesData, setITunesData] = useState<any>();
+  const [currentPage, setCurrentPage] = useState<any>(1); // Current page number
+  const [paginatedPosts, setPaginatedPosts] = useState<any>();
+  const pageSize: number = 10; // Total number of pages
+
+  const paginate = (items: any, pageNumber: number, pageSize: number) => {
+    const startIndex = (pageNumber - 1) * pageSize;
+    return items.slice(startIndex, startIndex + pageSize);
+};
+
+  useEffect(() => {
+    const pagesCount = Math.ceil(iTunesData?.entry.length / pageSize);
+    setPaginatedPosts(iTunesData?.entry && paginate(iTunesData?.entry, currentPage, pagesCount));
+  }, [iTunesData?.entry, currentPage])
 
   useEffect(() => {
     async function fetchData() {
       const response = await fetch('https://itunes.apple.com/us/rss/topalbums/limit=100/json');
       const data = await response.json();
-      setMessage(data.feed);
+      setITunesData(data.feed);
     }
     fetchData();
   }, []);
 
   return (
-    <div>
-       <header>
-      <Container>
-      {message && <Title>{message?.title?.label}</Title> }
-      {message?.entry.map((img: any, i: number) => (
-        <div key={i}>
-            <h2>{img?.title?.label}</h2>
-            <Img 
-            src = {img['im:image'][0]?.label}
-            link = {img?.link?.attributes?.href}
-            />
-            <figcaption>{`Release Date: ${img['im:releaseDate']?.label}`}</figcaption>
-            <figcaption>{`Artist: ${img['im:artist']?.label}`}</figcaption>
-            <figcaption>{`Category: ${img.category?.attributes?.label}`}</figcaption>
-            <figcaption>{`Price: ${img['im:price']?.label}`}</figcaption>
-        </div>
-      ))}
-      </Container>
-    </header>
-    </div>
+    <NextUIProvider>
+      {iTunesData && <Container>
+        <h2>{iTunesData?.title?.label}</h2>
+      <Cards iTunesData = {paginatedPosts} />
+    
+      <Footer>
+      <MyPagination setCurrentPage={setCurrentPage} />
+      </Footer>
+
+      </Container>}
+    </NextUIProvider>
   );
 }
 

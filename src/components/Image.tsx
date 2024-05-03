@@ -1,8 +1,6 @@
 import Image from 'next/image';
-import { useRouter } from 'next/navigation'
 
-export default function Img({ src, link }: { src: string, link: string}): JSX.Element {
-  const router = useRouter()
+export default function Img({ src }: { src: string}): JSX.Element {
   const myLoader=({src}: { src: string })=>{
     return src;
   }
@@ -18,7 +16,6 @@ export default function Img({ src, link }: { src: string, link: string}): JSX.El
       width={100}
       height={100}
       alt="Picture of the author"
-      onClick={() => router.push(link)}
     />
   );
 }
