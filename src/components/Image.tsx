@@ -1,7 +1,7 @@
 import Image from 'next/image';
 
-export default function Img({ src }: { src: string}): JSX.Element {
-  const myLoader=({src}: { src: string })=>{
+export default function Img({ src, width, height }: { src: string, width: number, height: number }): JSX.Element {
+  const myLoader = ({ src }: { src: string }) => {
     return src;
   }
   const imageStyle = {
@@ -13,8 +13,8 @@ export default function Img({ src }: { src: string}): JSX.Element {
       loader={myLoader}
       style={imageStyle}
       src={src}
-      width={100}
-      height={100}
+      width={width}
+      height={height}
       alt="Picture of the author"
     />
   );

@@ -9,43 +9,96 @@ const neonAnimation = keyframes`
         border-color: #00f;
       }
 `;
-// Define the styled component for the 3D title
-export const Title = styled.h1`
+export const Container = styled.div`
+  margin:0 auto;
+  background-color: #334558;
+`;
+export const Title = styled.div`
   font-size: 3rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  text-shadow: 2px 2px 0px #333, 4px 4px 0px #777;
-  color: #00008B
+  color: white;
+  text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+  display: inline-block;
+  margin: 0 0 0 50px;
+  margin-left: 10px;
 `;
 
-// Wrapper component to apply Bootstrap container styles
-export const Container = styled.div`
-  text-align: center; 
- width: 100%;
- height: 100%;    
+export const Icon = styled.div`
+  display:inline-block;
+  margin-left: 40px;
+  margin-bottom: -10px;
+`;
+
+export const SearchBar = styled.div`
+  display: inline-block;
+  margin-left: 400px;
+  position: absolute;
+  margin-top: 20px;
+`;
+
+export const SearchInput = styled.input`
+  background-color: #356391;
+  border: 2px solid #008CBA;
+  border-radius: 18px;
+  color: black;
+  height: 40px;
+  text-align: center;
+`;
+
+export const SelectInput = styled.select`
+  background-color: #356391;
+  display: inline-block;
+  border: 2px solid #008CBA;
+  border-radius: 18px;
+  color: #6a6791;
+  cursor: pointer;
+  margin-left: -120px;
+  color: black;
+  height: 40px;
+`;
+
+export const Button = styled.button`
+  background-color: #356391; 
+  color: black; 
+  border: 2px solid #008CBA;
+  border-radius: 18px;
+  width: 100px;
+  height: 40px;
+`;
+
+export const ClearButton = styled.button`
+  background-color: red; 
+  color: black; 
+  border: 2px solid #008CBA;
+  border-radius: 18px;
+  width: 100px;
+  height: 40px;
 `;
 
 export const Parent = styled.div`
-  display: grid;
-  gap: 50px 100px;
-  grid-template-columns: auto auto auto auto;
-  background-color: #001133;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  background-color: #334558;
   padding: 20px;
+  height: 650px;
 `;
 
 export const Child = styled.div`
-  background-color: #000;
+  background-color: #36342f;
   color: #fff;
   padding: 7px;
   text-align: center;
   font-family: monospace;
+  margin-bottom: 2rem;
+  width: 23%;
   border: 1px solid transparent; /* Initial border set to transparent */
-
   &:hover {
     animation: ${neonAnimation} 1s ease-in-out infinite alternate;
   }
 `;
 export const Footer = styled.div`
-  background-color: #03a9f4;
-  marginLeft: 450px
+  background-color: #334558;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `

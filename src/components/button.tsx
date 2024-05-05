@@ -1,14 +1,26 @@
-import {Button} from  '@nextui-org/button';
+"use client"
+import { Button, ClearButton } from "@/sylesheets/styles";
+import { useState } from "react";
 
-export default function button() {
-    console.log('checkinnnn')
+export default function SearchButton({ setIsSearchClicked }: { setIsSearchClicked: any }) {
+  const [buttonValue, setButtonValue] = useState<any>();
   return (
-    <Button
-      disableRipple
-      className="relative overflow-visible rounded-full hover:-translate-y-1 px-12 shadow-xl bg-background/30 after:content-[''] after:absolute after:rounded-full after:inset-0 after:bg-background/40 after:z-[-1] after:transition after:!duration-500 hover:after:scale-150 hover:after:opacity-0"
-      size="lg"
-    >
-      Press me
-    </Button>
+    <>
+      {buttonValue ?
+        <ClearButton
+          onClick={() => {
+            setIsSearchClicked(false)
+            setButtonValue(false)
+          }}>
+          Clear
+        </ClearButton> :
+        <Button
+          onClick={() => {
+            setIsSearchClicked(true)
+            setButtonValue(true)
+          }}>
+          Search
+        </Button>}
+    </>
   );
 }
