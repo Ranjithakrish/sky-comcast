@@ -44,7 +44,7 @@ const HomePage: React.FC = () => {
 
     useEffect(() => {
         if (iTunesData?.entry) setPaginatedPosts(searchData && isSearchClicked ? paginate(searchData, currentPage, pageCardCnt) : paginate(iTunesData?.entry, currentPage, pageCardCnt));
-    }, [iTunesData?.entry, currentPage, searchData])
+    }, [iTunesData?.entry, currentPage, searchData, isSearchClicked])
 
     useEffect(() => {
         if (searchValue && searchCateogry && isSearchClicked) {
