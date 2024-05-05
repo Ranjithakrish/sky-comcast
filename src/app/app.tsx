@@ -16,7 +16,7 @@ const HomePage: React.FC = () => {
     const [currentPage, setCurrentPage] = useState<any>(1); // Current page number
     const [paginatedPosts, setPaginatedPosts] = useState<any>();
     const [searchValue, setSearchValue] = useState<any>();
-    const [searchCateogry, setSearchCateogry] = useState<any>();
+    const [searchCateogry, setSearchCateogry] = useState<any>("option");
     const [searchData, setSearchData] = useState<any>();
     const [isSearchClicked, setIsSearchClicked] = useState<boolean>(false);
     const pageCardCnt: number = 8; // Total number of pages

@@ -2,7 +2,7 @@
 import { Button, ClearButton } from "@/sylesheets/styles";
 import { useState } from "react";
 
-export default function SearchButton({ setIsSearchClicked }: { setIsSearchClicked: any }) {
+export default function SearchButton({ setIsSearchClicked, setSearchValue }: { setIsSearchClicked: any, setSearchValue: any }) {
   const [buttonValue, setButtonValue] = useState<any>();
   return (
     <>
@@ -11,6 +11,7 @@ export default function SearchButton({ setIsSearchClicked }: { setIsSearchClicke
           onClick={() => {
             setIsSearchClicked(false)
             setButtonValue(false)
+            setSearchValue('')
           }}>
           Clear
         </ClearButton> :

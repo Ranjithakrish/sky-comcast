@@ -13,7 +13,7 @@ const Search = ({ setSearchValue, searchValue, setSearchCateogry, setIsSearchCli
                 onChange={(e) => setSearchValue(e.target.value)}
                 placeholder="Enter search term"
             />
-            <SearchButton setIsSearchClicked={setIsSearchClicked} />
+            <SearchButton setIsSearchClicked={setIsSearchClicked} setSearchValue = {setSearchValue}/>
         </div>
     );
 };
