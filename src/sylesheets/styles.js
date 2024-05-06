@@ -12,6 +12,8 @@ const neonAnimation = keyframes`
 export const Container = styled.div`
   margin:0 auto;
   background-color: #334558;
+  display: flex;
+  justify-content: space-between;
 `;
 export const Title = styled.div`
   font-size: 3rem;
@@ -30,13 +32,13 @@ export const Icon = styled.div`
 
 export const SearchBar = styled.div`
   display: inline-block;
-  margin-left: 400px;
-  position: absolute;
   margin-top: 20px;
+  margin-right: 50px;
 `;
 
 export const SearchInput = styled.input`
   background-color: #356391;
+  margin-right: 10px;
   border: 2px solid #008CBA;
   border-radius: 18px;
   color: black;
@@ -46,12 +48,12 @@ export const SearchInput = styled.input`
 
 export const SelectInput = styled.select`
   background-color: #356391;
+  margin-right: 10px;
   display: inline-block;
   border: 2px solid #008CBA;
   border-radius: 18px;
   color: #6a6791;
   cursor: pointer;
-  margin-left: -120px;
   color: black;
   height: 40px;
 `;

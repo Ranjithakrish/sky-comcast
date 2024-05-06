@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import SelectDetail from './select';
 import SearchButton from './button';
 import { SearchInput } from '@/sylesheets/styles';
@@ -12,6 +11,7 @@ const Search = ({ setSearchValue, searchValue, setSearchCateogry, setIsSearchCli
                 value={searchValue}
                 onChange={(e) => setSearchValue(e.target.value)}
                 placeholder="Enter search term"
+                id="searchBox"
             />
             <SearchButton setIsSearchClicked={setIsSearchClicked} setSearchValue = {setSearchValue}/>
         </div>

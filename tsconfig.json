@@ -21,6 +21,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/sylesheets/styles.js"],
+  "include": ["next-env.d.ts", "**/*.ts", ".next/types/**/*.ts", "src/sylesheets/styles.js"],
   "exclude": ["node_modules"]
 }

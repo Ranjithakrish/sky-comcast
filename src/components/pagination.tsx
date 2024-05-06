@@ -11,6 +11,8 @@ interface PaginationProps {
 
 const MyPagination: React.FC<PaginationProps> = ({ setCurrentPage, cardsLength, pageCardCnt }) => {
   const totalPages = Math.ceil(cardsLength / pageCardCnt);
+
+  // Define renderItem function to customize pagination item rendering
   const renderItem = ({
     ref,
     key,
@@ -22,6 +24,7 @@ const MyPagination: React.FC<PaginationProps> = ({ setCurrentPage, cardsLength, 
     className,
   }: PaginationItemRenderProps) => {
 
+    // Render next button with Chevron icon
     if (value === PaginationItemType.NEXT) {
       return (
         <button key={key} className={cn(className, "bg-default-200/50 min-w-8 w-8 h-8")} onClick={onNext}>
@@ -30,6 +33,7 @@ const MyPagination: React.FC<PaginationProps> = ({ setCurrentPage, cardsLength, 
       );
     }
 
+    // Render previous button with Chevron icon
     if (value === PaginationItemType.PREV) {
       return (
         <button key={key} className={cn(className, "bg-default-200/50 min-w-8 w-8 h-8")} onClick={onPrevious}>
@@ -38,9 +42,12 @@ const MyPagination: React.FC<PaginationProps> = ({ setCurrentPage, cardsLength, 
       );
     }
 
+    // Render dots for pagination items representing ellipsis
     if (value === PaginationItemType.DOTS) {
       return <button key={key} className={className}>...</button>;
     }
+
+    // Render page number button
     return (
       <button
         key={key}
@@ -59,6 +66,8 @@ const MyPagination: React.FC<PaginationProps> = ({ setCurrentPage, cardsLength, 
       </button>
     );
   };
+
+  // Render Pagination component with customized renderItem function
   return (
     <Pagination
       disableCursorAnimation

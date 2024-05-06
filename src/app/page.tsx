@@ -3,7 +3,7 @@ import { Provider } from "react-redux";
 import { store } from "@/GlobalRedux/store";
 import HomePage from "./app";
 
-function App() {
+function Page() {
   return (
     <Provider store={store}>
       <HomePage />
@@ -12,4 +12,4 @@ function App() {
   );
 }
 
-export default App
+export default Page
